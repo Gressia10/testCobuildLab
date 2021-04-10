@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@8base/api-client": "^2.0.2",
+    "@expo/webpack-config": "^0.12.65",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.4",
