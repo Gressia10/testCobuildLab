@@ -18,7 +18,7 @@ export default function login (email, password, navigation){
         }
       });
 
-    client.request(QUERY_LOGIN, variables).then(r => {console.log(r.usersList.items[0].id); 
+    client.request(QUERY_LOGIN, variables).then(r => {
         AsyncStorage.setItem('id', JSON.stringify(r.usersList.items[0].id));
         if(r.usersList.items[0].id != null){
             navigation.navigate('Tasks')

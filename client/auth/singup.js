@@ -20,5 +20,5 @@ export default function signup(email, password, name, lastName, navigation){
         }
       });
 
-    client.request(MUTATION_SIGNUP, variables).then(r => {console.log(r); navigation.navigate('Login')});
+    client.request(MUTATION_SIGNUP, variables).then(r => {navigation.navigate('Login')});
 }

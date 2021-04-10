@@ -12,9 +12,9 @@ import {
   Left
 } from 'native-base';
 
-import login from '../client/auth/login'
+import * as task from '../client/task/task'
 
-export default function UpdateStatus({status, setStatus}) {
+export default function UpdateStatus({status, setStatus, navigation}) {
 
     function onValueChange(value) {
         setStatus(value)
@@ -34,7 +34,11 @@ export default function UpdateStatus({status, setStatus}) {
                 <Picker.Item label="Finished" value="Finished" />
             </Picker>
         </Right>
-        <Right><Button><Text>Update Status</Text></Button></Right>
+        <Right>
+          <Button onPress={() => {task.updateStatus(status, navigation)}}>
+            <Text>Update Status</Text>
+          </Button>
+        </Right>
     </Container>
   );
 }

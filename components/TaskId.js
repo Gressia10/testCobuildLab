@@ -12,6 +12,8 @@ import {
 
 import * as task from '../client/task/task'
 import UpdateStatus from '../components/UpdateStatus'
+import UpdateButton from '../components/UpdateButton'
+import DeleteButton from '../components/DeleteButton'
 
 export default function TaskId({navigation}) {
     const [title, setTitle] = useState("");
@@ -39,10 +41,10 @@ export default function TaskId({navigation}) {
                 <Label>Email to assign</Label>
                 <Input value={email} onChangeText={text => setEmail(text)} />
             </FormItem>
-            <Right><Button><Text>Delete</Text></Button></Right>
-            <Button><Text>Update</Text></Button>
+            <DeleteButton navigation={navigation}/>
+            <UpdateButton title={title} body={body} email={email} navigation={navigation}/>
         </Form>
-        <UpdateStatus status={status} setStatus={setStatus}/>
+        <UpdateStatus status={status} setStatus={setStatus} navigation={navigation}/>
     </Container>
   );
 }
