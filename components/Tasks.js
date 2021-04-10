@@ -3,6 +3,13 @@ import { Container, Header, Content, List, ListItem, Text, Body, Title , Button,
 import * as task from "../client/task/task"
 import { AsyncStorage } from 'react-native';
 
+/**
+ * Componente funcional que muestra una lista con las tareas creadas por el usuario y las asignadas al usuario
+ *
+ *  @param {Function} navigation para la navegacion
+ *  @returns {React.FunctionComponent}
+ */
+
 export default function Tasks ({navigation}){
     const [tasks, setTasks] = useState([]);
     const [state, setState]=useState(true);

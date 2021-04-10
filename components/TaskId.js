@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import {
   Container,
-  Button,
-  Text,
   Form,
   Item as FormItem,
   Input,
-  Label, 
-  Right, 
+  Label,
 } from 'native-base';
 
 import * as task from '../client/task/task'
 import UpdateStatus from '../components/UpdateStatus'
 import UpdateButton from '../components/UpdateButton'
 import DeleteButton from '../components/DeleteButton'
+
+/**
+ * Componente funcional que muestra un formulario con toda la informacion de la tarea
+ * renderiza los componente UpdateStatus, UpdateButton, DeleteButton
+ *
+ *  @param {Function} navigation para la navegacion
+ *  @returns {React.FunctionComponent}
+ */
 
 export default function TaskId({navigation}) {
     const [title, setTitle] = useState("");

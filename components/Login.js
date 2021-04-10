@@ -11,6 +11,13 @@ import {
 
 import login from '../client/auth/login'
 
+/**
+ * Componente funcional que muestra un formulario para iniciar sesion
+ * 
+ *@param {Function} navigation para la navegacion
+ *  @returns {React.FunctionComponent}
+ */
+
 export default function Login({navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

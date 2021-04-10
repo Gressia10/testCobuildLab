@@ -11,6 +11,13 @@ import {
 
 import signup from '../client/auth/singup'
 
+/**
+ * Componente funcional que muestra un formulario para registrar un nuevo usuario
+ *
+ * @param {Function} navigation para la navegacion
+ *  @returns {React.FunctionComponent}
+ */
+
 export default function Signup({navigation}) {
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");

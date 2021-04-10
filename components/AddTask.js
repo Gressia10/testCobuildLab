@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import {
   Container,
-  Button,
-  Text,
   Form,
   Item as FormItem,
   Input,
   Label,
 } from 'native-base';
 
-import login from '../client/auth/login'
 import AddButton from "./addButton"
+
+/**
+ * Componente funcional que muestra el formulario para agregar una nueva tarea
+ * renderiza el componente AddButton 
+ * 
+ * @param {Function} navigation para la navegacion
+ *  @returns {React.FunctionComponent}
+ */
 
 export default function AddTask({navigation}) {
     const [title, setTitle] = useState("");

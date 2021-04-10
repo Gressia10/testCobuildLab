@@ -66,25 +66,30 @@ mutation ($id:ID!, $email:String!, $title:String!, $body:String!){
 `;
 
 export const GET_TASK_USER =gql `
-query user(
-    $id:ID!
-) {
-    user(id: $id) {
-      tasks {
-        items{
-          id
-          title
-          body
-          user_assigned{
-            id
-            email
-            firstName
-            lastName
-          }
-        }
+query taskList($id:[ID!]){
+  tasksList(
+    filter:{
+      OR:[
+        {
+          user_created:{id:{in:$id}},
+        }, 
+        {user_assigned:{id:{in:$id}}}
+      ]
+    }
+  ) {
+    items{
+      id
+      title
+      body
+      user_assigned{
+        id
+        email
+        firstName
+        lastName
       }
     }
   }
+}
 `;
 
 export const ID_TASK = gql`

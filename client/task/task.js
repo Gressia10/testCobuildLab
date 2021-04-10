@@ -9,15 +9,13 @@ import {alert} from '../setting/alert'
 import {DELETE_TASK} from '../setting/queries'
 import {UPDATE_STATUS} from '../setting/queries'
 
-
-
 export async function task(navigation, setTask){
   const idUser = await AsyncStorage.getItem('id');
   const arrayId= idUser.split('"', 2)
   const ENDPOINT = await type.WORKSPACE_ENDPOINT;
   
   const variables = await {
-      id:arrayId[1]
+      id:[arrayId[1]], 
   }
 
   const client = await new GraphQLClient(ENDPOINT, {
@@ -27,8 +25,9 @@ export async function task(navigation, setTask){
     });
 
   await client.request(GET_TASK_USER, variables).then(r => {
-  setTask(r.user.tasks.items)
+  setTask(r.tasksList.items)
   }).catch(error => {
+    console.log(error);
     alert()
   });
 }

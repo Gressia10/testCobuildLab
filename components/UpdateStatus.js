@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Container,
   Button,
-  Text,
-  Form,
-  Item as FormItem,
-  Input,
-  Label, 
+  Text, 
   Picker, 
-  Right, 
-  Left
+  Right,
 } from 'native-base';
 
 import * as task from '../client/task/task'
+
+/**
+ * Componente funcional que muestra el status de una Tarea y permite cambiarlo
+ *
+ * @param {String} status el status actual de la tarea
+ * @param {Function} setStatus event handler para cambio de estado `status`
+ * @param {Function} navigation para la navegacion
+ *  @returns {React.FunctionComponent}
+ */
 
 export default function UpdateStatus({status, setStatus, navigation}) {
 

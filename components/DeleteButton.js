@@ -7,6 +7,12 @@ import {
 
 import * as task from '../client/task/task'
 
+/**
+ * Componente funcional que muestra un boton para eliminar una tarea 
+ * @param {Function} navigation para la navegacion
+ *  @returns {React.FunctionComponent}
+ */
+
 export default function DeleteButton({navigation}) {
   return (
     <Right>
