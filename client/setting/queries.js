@@ -44,7 +44,7 @@ mutation userCreate(
 `;
 
 export const ADD_TASK = gql`
-mutation (id:ID!, email:String!, title:String!, body:String!){
+mutation ($id:ID!, $email:String!, $title:String!, $body:String!){
     userUpdate(
     filter: {
       id: $id
@@ -63,4 +63,41 @@ mutation (id:ID!, email:String!, title:String!, body:String!){
       }
     }
 }
+`;
+
+export const GET_TASK_USER =gql `
+query user(
+    $id:ID!
+) {
+    user(id: $id) {
+      tasks {
+        items{
+          title
+          body
+          user_assigned{
+            id
+            email
+            firstName
+            lastName
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const ID_TASK = gql`
+  query task($id:ID!){
+    task(id: $id) {
+      id
+      title
+      body
+      user_assigned{
+        id
+        email
+        firstName
+        lastName
+      } 
+    }
+  }
 `;

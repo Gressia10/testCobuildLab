@@ -1,6 +1,6 @@
 import React, { useState, useEffect, } from 'react';
 import { Container, Header, Content, List, ListItem, Text, Body, Title , Button,  Right, Left, Icon} from 'native-base';
-import task from "../client/task/task"
+import * as task from "../client/task/task"
 import { AsyncStorage } from 'react-native';
 
 export default function Tasks ({navigation}){
@@ -8,12 +8,12 @@ export default function Tasks ({navigation}){
     const [state, setState]=useState(true);
 
     function list(id){
-        AsyncStorage.setItem('id_list', JSON.stringify(id))
+        AsyncStorage.setItem('id_task', JSON.stringify(id))
         navigation.navigate("ViewTask");
     }
 
     useEffect(()=>{
-        task(navigation, setTasks);
+        task.task(navigation, setTasks);
     }, [state]);
 
     return (

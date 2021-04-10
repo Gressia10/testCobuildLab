@@ -3,7 +3,7 @@ import {
   Container,
 } from 'native-base';
 
-import AddTask from "../components/Login"
+import AddTask from "../components/AddTask"
 
 export default function AddTaskView({navigation}) {
 

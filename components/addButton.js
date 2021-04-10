@@ -9,12 +9,12 @@ import {
   Label,
 } from 'native-base';
 
-import login from '../client/auth/login'
+import * as task from '../client/task/task'
 
-export default function AddButton({title, body, navigation}) {
+export default function AddButton({title, body, email, navigation}) {
 
   return (
-    <Button full primary style={{ paddingBottom: 4 }} onPress={() => {console.log("aaaa");navigation.navigate('Tasks')}}>
+    <Button full primary style={{ paddingBottom: 4 }} onPress={() => {console.log("aaaa");task.addTask(email, title, body, navigation)}}>
         <Text>Add</Text>
     </Button>
     
