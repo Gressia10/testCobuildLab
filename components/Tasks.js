@@ -9,7 +9,7 @@ export default function Tasks ({navigation}){
 
     function list(id){
         AsyncStorage.setItem('id_task', JSON.stringify(id))
-        navigation.navigate("ViewTask");
+        navigation.navigate("TaskId");
     }
 
     useEffect(()=>{
@@ -44,9 +44,6 @@ export default function Tasks ({navigation}){
                 </ListItem>
                 ))}
             </List>
-            <Button  onPress={() => task(navigation, setTasks)}>
-                <Text>Presionar</Text>
-            </Button>
         </Content>
       </Container>
     );

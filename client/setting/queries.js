@@ -72,6 +72,7 @@ query user(
     user(id: $id) {
       tasks {
         items{
+          id
           title
           body
           user_assigned{
@@ -92,6 +93,7 @@ export const ID_TASK = gql`
       id
       title
       body
+      status
       user_assigned{
         id
         email

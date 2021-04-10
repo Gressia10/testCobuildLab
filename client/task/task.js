@@ -27,16 +27,16 @@ export async function task(navigation, setTask){
   setTask(r.user.tasks.items)});
 }
 
-export async function getTask(){
+export async function getTask(setEmail, setTitle, setBody, setStatus){
   const idTask = await AsyncStorage.getItem('id_task');
-  // const arrayId= idTask.split('"', 2)
-  console.log('id '+idTask);
+  const arrayId= idTask.split('"', 2)
   const ENDPOINT = await type.WORKSPACE_ENDPOINT;
   
   
   const variables = await {
-      id:idTask
+      id:arrayId[1]
   }
+  console.log('variables: '+variables.id)
 
   const client = await new GraphQLClient(ENDPOINT, {
       headers: {
@@ -44,17 +44,18 @@ export async function getTask(){
       }
     });
 
-  await client.request(ID_TASK, variables).then(r => {console.log(r.user.tasks.items);
+  await client.request(ID_TASK, variables).then(r => {console.log(r.task);
+    setEmail(r.task.user_assigned.email);
+    setTitle(r.task.title);
+    setBody(r.task.body);
+    setStatus(r.task.status);
   });
 }
 
 export async function addTask(email, title, body, navigation){
-  console.log("asignando");
   const idUser = await AsyncStorage.getItem('id');
   const arrayId= idUser.split('"', 2);
-  console.log('id '+arrayId[1]);
   const ENDPOINT = await type.WORKSPACE_ENDPOINT;
-  console.log('email: '+email+' title '+title+' body '+ body);
   const variables = await {
       id:arrayId[1], 
       email:email, 
